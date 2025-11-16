@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Celestial Profile - Celestial Visions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f06f9",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#190f23",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col font-display">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-white/10 px-4 md:px-10 py-3">
+<div class="flex items-center gap-4 text-white">
+<div class="size-4 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Celestial Visions</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Readings</a>
+<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="#">Profile</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Log Out</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col gap-8 py-8 md:py-12">
+<div class="px-4">
+<h1 class="text-black dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Celestial Profile</h1>
+</div>
+<div class="flex p-4 @container">
+<div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-24 w-24 md:h-32 md:w-32 ring-2 ring-primary/50" data-alt="User profile picture with a mystical, abstract background." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArCCiV-Kw3oIPR8Xr4FYAlXvCzYaPb1SGX0Sli2qtjp6faDp4UoM9qVf_FKdvlw5lJiiXzVvNc3PLBEVjidWvdFYY1vjmY5ooVCYCDi8Z5OWizXd6tMR2b00GszFCt7vpqcZKX-6ujzTyWA5dZYb30iRPXfXyndZNOYas1_f6gp-r7jt0qEqhR7537BzidTOF8gYePl3OceOYMm2685a4mHLo3WvUVvTz2IIhtZxHcQEJNK_32vlV5IDAPNJIMp7A6-9-tMf96cgQD");'></div>
+<div class="flex flex-col justify-center gap-1">
+<p class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">AstroSeeker9</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">u***@email.com</p>
+</div>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white/10 dark:bg-white/10 hover:bg-white/20 dark:hover:bg-white/20 text-black dark:text-white text-sm font-bold leading-normal tracking-[0.015em] w-full max-w-[480px] @[480px]:w-auto">
+<span class="truncate">Edit Profile</span>
+</button>
+</div>
+</div>
+<div class="border-t border-white/10 dark:border-white/10"></div>
+<div class="px-4">
+<h2 class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Cosmic Membership</h2>
+</div>
+<div class="px-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row @xl:items-start bg-primary/10 dark:bg-primary/20 p-6">
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-gray-600 dark:text-gray-300 text-sm font-normal leading-normal">Current Plan</p>
+<p class="text-primary dark:text-primary text-lg font-bold leading-tight tracking-[-0.015em]">Premium Oracle</p>
+</div>
+<div class="inline-flex items-center justify-center rounded-full bg-primary px-3 py-1 text-xs font-medium text-white">ACTIVE</div>
+</div>
+<div class="flex flex-col gap-2 sm:flex-row items-start sm:items-end gap-3 justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Active until December 21, 2024</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Access to daily horoscopes, tarot readings, and personalized predictions.</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal">
+<span class="truncate">Manage Subscription</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 dark:border-white/10 mt-4"></div>
+<div class="px-4">
+<h2 class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Account Security</h2>
+</div>
+<div class="px-4 @container">
+<div class="flex flex-col gap-4">
+<a class="flex items-center justify-between rounded-lg p-4 bg-white/5 dark:bg-white/[.02] hover:bg-white/10 dark:hover:bg-white/5 transition-colors" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">lock</span>
+<span class="text-black dark:text-white font-medium">Change Password</span>
+</div>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">chevron_right</span>
+</a>
+<a class="flex items-center justify-between rounded-lg p-4 bg-white/5 dark:bg-white/[.02] hover:bg-white/10 dark:hover:bg-white/5 transition-colors" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">receipt_long</span>
+<span class="text-black dark:text-white font-medium">Billing History</span>
+</div>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">chevron_right</span>
+</a>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fortune Teller - FAQ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f06f9",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#190f23",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-white/10 px-4 sm:px-10 py-3">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Fortune Teller</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary" href="#">Services</a>
+<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="#">FAQ</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Login</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Sign Up</span>
+</button>
+</div>
+</div>
+<button class="md:hidden flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-inherit">menu</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="mt-10 sm:mt-16">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-3 text-center w-full">
+<h1 class="text-slate-900 dark:text-white text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Frequently Asked Questions</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal max-w-2xl mx-auto">
+                                    Welcome! Here you'll find answers to common questions about our mystical services and how everything works.
+                                </p>
+</div>
+</div>
+<!-- Search and Filters -->
+<div class="mt-8 px-4 py-3">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+<!-- SearchBar -->
+<div class="md:col-span-2">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 dark:text-slate-400 flex border-r-0 bg-slate-200 dark:bg-white/5 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-inherit" style="font-size: 24px;">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary focus:ring-inset border-none bg-slate-200 dark:bg-white/5 h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search for a question..." value=""/>
+</div>
+</label>
+</div>
+<!-- Chips -->
+<div class="md:col-span-1 flex justify-start md:justify-end flex-wrap gap-2">
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4">
+<p class="text-white text-sm font-medium leading-normal">General</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-white/10 pl-4 pr-4">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Process</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-white/10 pl-4 pr-4">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Billing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Accordions -->
+<div class="flex flex-col p-4 mt-6">
+<details class="flex flex-col border-t border-white/10 py-2 group" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal">How are the fortune-tellings performed?</p>
+<div class="text-slate-500 dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal pb-2 max-w-prose">
+                                    Our gifted advisors use a variety of ancient and modern divination methods, including Tarot, Astrology, Numerology, and Clairvoyance. Each reading is a personalized experience tailored to your unique energy and questions.
+                                </p>
+</details>
+<details class="flex flex-col border-t border-white/10 py-2 group">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal">Is my personal information kept private?</p>
+<div class="text-slate-500 dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal pb-2 max-w-prose">
+                                    Absolutely. We adhere to a strict privacy policy. All your personal information and the details of your readings are confidential. We use secure encryption to protect your data.
+                                </p>
+</details>
+<details class="flex flex-col border-t border-white/10 py-2 group">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal">What payment methods do you accept?</p>
+<div class="text-slate-500 dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal pb-2 max-w-prose">
+                                    We accept all major credit cards, including Visa, MasterCard, and American Express, as well as payments through PayPal for your convenience.
+                                </p>
+</details>
+<details class="flex flex-col border-t border-white/10 py-2 group">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal">How do I receive my reading?</p>
+<div class="text-slate-500 dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal pb-2 max-w-prose">
+                                    Readings are delivered directly to your account dashboard on our website. You will receive an email notification as soon as your reading is ready to be viewed.
+                                </p>
+</details>
+<details class="flex flex-col border-t border-b border-white/10 py-2 group">
+<summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal">Can I ask a follow-up question?</p>
+<div class="text-slate-500 dark:text-slate-400 transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal pb-2 max-w-prose">
+                                    Yes, many of our reading packages include the option for one or two follow-up questions for clarification. Please check the details of your selected service for more information.
+                                </p>
+</details>
+</div>
+<!-- CTA Section -->
+<div class="mt-16 mb-10 p-4">
+<div class="bg-slate-200/50 dark:bg-white/5 rounded-xl p-8 sm:p-12 flex flex-col items-center text-center">
+<div class="text-primary mb-4">
+<span class="material-symbols-outlined" style="font-size: 48px;">contact_support</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight">Still have questions?</h3>
+<p class="text-slate-600 dark:text-slate-400 mt-2 max-w-md">
+                                    If you couldn't find the answer you were looking for, the stars may have another message for you. Contact our support team for guidance.
+                                </p>
+<button class="flex mt-6 min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Contact Support</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-solid border-white/10 pt-8 pb-12 px-4 sm:px-10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-5 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-base font-bold">Fortune Teller</h2>
+</div>
+<div class="flex gap-6 items-center">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary dark:hover:text-primary" href="#">Terms of Service</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary dark:hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary dark:hover:text-primary" href="#">Social</a>
+</div>
+<p class="text-slate-500 dark:text-slate-500 text-sm">© 2024 Fortune Teller. All rights reserved.</p>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>

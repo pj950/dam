@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us - Celestial Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7f06f9",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#190f23",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex w-full justify-center border-b border-white/10 bg-background-dark/80 px-4 py-3 backdrop-blur-sm">
+<div class="flex w-full max-w-6xl items-center justify-between">
+<div class="flex items-center gap-4 text-white">
+<div class="h-6 w-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Celestial Insights</h2>
+</div>
+<nav class="hidden items-center gap-8 md:flex">
+<a class="text-white/80 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Home</a>
+<a class="text-white/80 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Services</a>
+<a class="text-white text-sm font-medium leading-normal" href="#">About Us</a>
+<a class="text-white/80 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Contact</a>
+</nav>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 flex-col items-center">
+<div class="flex w-full max-w-6xl flex-col items-center gap-16 px-4 py-16 md:gap-24 md:py-24">
+<!-- HeroSection -->
+<section class="w-full @container">
+<div class="flex min-h-[480px] w-full flex-col items-center justify-center gap-6 rounded-xl bg-cover bg-center p-8 text-center" data-alt="A dark, swirling nebula with bright stars, conveying a sense of cosmic mystery and depth." style="background-image: linear-gradient(rgba(25, 15, 35, 0.6) 0%, rgba(25, 15, 35, 0.8) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBchTJzlxTk6n-cXvc_9m0oF2Ry3ctpjWXFV6co0DRsxgfdU4t7c5EnfkaeWdgmvaaYIL-tJBxmLsHA52zuFpkmIuiuw-cbmO9Dnn2qWxxPULVop2tKbu6S_aAEC3wq10sodGTJvIr6OWx87eIp9sObZOMrwyQQAh91w12_EZtGqJVXj3utFrLgMsjq5sTnxZiJ_3iLgSrqHx3Xfmn6yW2kReCE_isotJUJlTtu2NqneSAY3hHj6Uc5qCfz4p6m7_SqUd_27KW2y0Ia');">
+<div class="flex flex-col gap-4">
+<h1 class="text-white text-4xl font-bold leading-tight tracking-[-0.033em] md:text-6xl">Our Cosmic Journey</h1>
+<h2 class="text-white/80 mx-auto max-w-2xl text-base font-normal leading-normal md:text-lg">Discover the story, mission, and vision that guides Celestial Insights as we navigate the cosmos of wisdom together.</h2>
+</div>
+</div>
+</section>
+<!-- FeatureSection (Mission/Vision) -->
+<section class="w-full @container">
+<div class="flex flex-col gap-10">
+<div class="flex flex-col items-center gap-4 text-center">
+<h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Our Guiding Stars</h2>
+<p class="text-white/70 max-w-3xl text-base font-normal leading-normal">At the heart of our practice are the principles that illuminate our path and yours, ensuring every reading is insightful and empowering.</p>
+</div>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<div class="flex flex-1 flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-6">
+<div class="text-primary"><span class="material-symbols-outlined text-4xl">explore</span></div>
+<div class="flex flex-col gap-2">
+<h3 class="text-white text-xl font-bold leading-tight">Our Mission</h3>
+<p class="text-white/70 text-sm font-normal leading-normal">To guide seekers on their life path with clarity, wisdom, and profound empathy, unlocking personal insights through the timeless art of divination.</p>
+</div>
+</div>
+<div class="flex flex-1 flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-6">
+<div class="text-primary"><span class="material-symbols-outlined text-4xl">star</span></div>
+<div class="flex flex-col gap-2">
+<h3 class="text-white text-xl font-bold leading-tight">Our Vision</h3>
+<p class="text-white/70 text-sm font-normal leading-normal">To make the ancient wisdom of the cosmos accessible and understandable in the modern digital age, empowering individuals to navigate their journey with confidence.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Philosophy Section -->
+<section class="w-full flex flex-col items-center gap-6 text-center">
+<div class="flex w-full items-center gap-4">
+<hr class="w-full border-t border-white/10"/>
+<h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] whitespace-nowrap md:text-4xl">Our Philosophy</h2>
+<hr class="w-full border-t border-white/10"/>
+</div>
+<p class="text-white/70 max-w-3xl text-base font-normal leading-normal">We believe fortune-telling is a powerful tool for self-reflection and empowerment, not a prediction of an unchangeable fate. Our approach is rooted in an ethical and interpretive framework that honors personal free will, offering guidance that illuminates possibilities and encourages conscious choices. We are custodians of ancient knowledge, here to help you understand the energies at play in your life.</p>
+</section>
+<!-- Team Section -->
+<section class="w-full flex flex-col items-center gap-10">
+<div class="flex flex-col items-center gap-4 text-center">
+<h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Meet the Oracles</h2>
+<p class="text-white/70 max-w-3xl text-base font-normal leading-normal">Our gifted team of intuitives is dedicated to providing you with the most insightful and compassionate readings.</p>
+</div>
+<div class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<!-- Team Member Card 1 -->
+<div class="flex flex-col items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-6 text-center">
+<img class="h-32 w-32 rounded-full object-cover" data-alt="Portrait of Evelyn Reed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANZx9M5rTxAzLggk2Dvc0DfEP8Tn29Nb_BAMmaISrRfhASBRiPDn7DRJ5gt2OLqApXUkERMf17lSGNJ-4j5gwjb99gLBe9R_vN0NMXQa7Y-WsgdY-u2MTOnnWLX6HmUJGZYdrlMjYm_PgUO1lrVTu7LgWdEJpEFH3XgFTPjvV4ZRJ1OwkVCfZMG9JyzTITHodpLuXUACHsYKMpMXZxcJSRyCgC03x1dAIM_QrgJp2N4DnSU0Cp1cRXQvpqea8gp2_sO9x5debgVeyN"/>
+<div class="flex flex-col gap-1">
+<h4 class="text-white text-lg font-bold">Evelyn Reed</h4>
+<p class="text-primary text-sm font-medium">Founder &amp; Head Oracle</p>
+</div>
+<p class="text-white/70 text-sm">With over 20 years of experience in Tarot and Astrology, Evelyn founded Celestial Insights to bring clarity to the modern world.</p>
+</div>
+<!-- Team Member Card 2 -->
+<div class="flex flex-col items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-6 text-center">
+<img class="h-32 w-32 rounded-full object-cover" data-alt="Portrait of Marcus Thorne" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_tijXtmtJDkLWq-nIK_XH4WFSjEDGsB658fJJgYs_Pseu9MZg0RCS7gHH2Wsj2AgOJATBU4rpKoBTEE78A4_fuSjbl5qzweBL97k_xz7vWCCi-h-58CuRMwESdztzeUtnHEaUHMSQG7Lqaq-6hUWOFdC9Kfn3RrPlV039xSLulGlPHJQTvYBCATQH0yEbV7kF1HWx2g2f_JYaRkxd6EiISAXsCIP6Dx0vZtn9bg6gaqPV-DPL_qSicOtTx9jlVA1pP8v8O1oJMYSF"/>
+<div class="flex flex-col gap-1">
+<h4 class="text-white text-lg font-bold">Marcus Thorne</h4>
+<p class="text-primary text-sm font-medium">Master Astrologer</p>
+</div>
+<p class="text-white/70 text-sm">Marcus translates the language of the stars, specializing in natal charts and predictive astrology to illuminate life paths.</p>
+</div>
+<!-- Team Member Card 3 -->
+<div class="flex flex-col items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-6 text-center">
+<img class="h-32 w-32 rounded-full object-cover" data-alt="Portrait of Lena Petrova" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT-jCClR1XU-gFDPqvWpWCXiKyH-v8kofzfy0OXUvcZisF8aIRcoX5nr_H_qezhs4f5pqcorKyYeTEggHGGwX-1hgHckWycWIYKTgC61r4jxnz_sg1Y9lJ5TW6qZhXL7h_V83k5BlVBF9bzv_R5T0HzY8l6ZP-DLODbZPLL4TrpGvtlYQn0DuLFVMF-XVCiLIe6LMY8HXlYTpNF6MN25HTYxoa-CBwzxyeSQCFQEOk_omEF-EHiAahVKLQo1I6RZdNu5adq49gGqZW"/>
+<div class="flex flex-col gap-1">
+<h4 class="text-white text-lg font-bold">Lena Petrova</h4>
+<p class="text-primary text-sm font-medium">Rune &amp; Tarot Specialist</p>
+</div>
+<p class="text-white/70 text-sm">Lena connects with ancient symbols, offering profound insights through the wisdom of the Runes and Tarot cards.</p>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="w-full flex flex-col items-center gap-10">
+<div class="flex flex-col items-center gap-4 text-center">
+<h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Our Journey So Far</h2>
+<p class="text-white/70 max-w-3xl text-base font-normal leading-normal">From a humble beginning to a guiding light for thousands, follow the milestones that shaped our path.</p>
+</div>
+<div class="relative w-full max-w-4xl">
+<div class="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-white/10"></div>
+<div class="flex flex-col gap-12">
+<!-- Timeline Item 1 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse">
+<div class="flex w-full justify-end md:w-1/2 md:justify-start md:pr-8">
+<div class="w-full rounded-lg border border-white/10 bg-white/5 p-4 text-left md:text-right">
+<p class="font-bold text-white">2020 - The Spark</p>
+<p class="text-sm text-white/70">Celestial Insights was founded with a mission to bring ancient wisdom to the digital age.</p>
+</div>
+</div>
+<div class="absolute left-1/2 h-4 w-4 -translate-x-1/2 transform rounded-full bg-primary ring-4 ring-background-dark"></div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse">
+<div class="flex w-full justify-start text-left md:w-1/2 md:pl-8">
+<div class="w-full rounded-lg border border-white/10 bg-white/5 p-4">
+<p class="font-bold text-white">2021 - First 1,000 Readings</p>
+<p class="text-sm text-white/70">We celebrated our first major milestone, having guided over a thousand seekers on their journey.</p>
+</div>
+</div>
+<div class="absolute left-1/2 h-4 w-4 -translate-x-1/2 transform rounded-full bg-primary ring-4 ring-background-dark"></div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse">
+<div class="flex w-full justify-end md:w-1/2 md:justify-start md:pr-8">
+<div class="w-full rounded-lg border border-white/10 bg-white/5 p-4 text-left md:text-right">
+<p class="font-bold text-white">2023 - Team Expansion</p>
+<p class="text-sm text-white/70">Our family of oracles grew, welcoming new experts in Numerology and Runecasting.</p>
+</div>
+</div>
+<div class="absolute left-1/2 h-4 w-4 -translate-x-1/2 transform rounded-full bg-primary ring-4 ring-background-dark"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-white/10 bg-background-dark py-12">
+<div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 px-4 text-center md:flex-row md:items-start md:text-left">
+<div class="flex flex-col items-center gap-4 md:items-start">
+<div class="flex items-center gap-4 text-white">
+<div class="h-6 w-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-white text-lg font-bold">Celestial Insights</h2>
+</div>
+<p class="text-white/60 text-sm max-w-xs">Your trusted guide to the cosmos and the self.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-white">Navigate</h4>
+<div class="flex flex-col gap-2">
+<a class="text-white/60 hover:text-white transition-colors text-sm" href="#">Home</a>
+<a class="text-white/60 hover:text-white transition-colors text-sm" href="#">Services</a>
+<a class="text-white/60 hover:text-white transition-colors text-sm" href="#">About Us</a>
+<a class="text-white/60 hover:text-white transition-colors text-sm" href="#">Contact</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-white">Legal</h4>
+<div class="flex flex-col gap-2">
+<a class="text-white/60 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a>
+<a class="text-white/60 hover:text-white transition-colors text-sm" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="mx-auto mt-12 max-w-6xl border-t border-white/10 px-4 pt-8 text-center text-sm text-white/50">
+<p>© 2024 Celestial Insights. All rights reserved.</p>
+</div>
+</footer>
+</div>
+</body></html>

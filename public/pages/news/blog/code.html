@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Oracle's Journal - Cosmic Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#7f06f9",
+            "background-light": "#f7f5f8",
+            "background-dark": "#190f23",
+          },
+          fontFamily: {
+            "display": ["Newsreader", "serif"],
+            "sans": ["Noto Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+        font-family: 'Noto Sans', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Newsreader', serif;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden" style='font-family: Newsreader, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-10 py-3">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold font-display leading-tight tracking-[-0.015em]">Cosmic Insights</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9 font-sans">
+<a class="text-white/80 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Home</a>
+<a class="text-white/80 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Readings</a>
+<a class="text-white text-sm font-medium leading-normal" href="#">Blog</a>
+<a class="text-white/80 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">About</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors font-sans">
+<span class="truncate">Book a Reading</span>
+</button>
+</div>
+</header>
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 px-4 pt-10 pb-4">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-white text-5xl font-black font-display leading-tight tracking-[-0.033em]">The Oracle's Journal</p>
+<p class="text-white/70 text-base font-normal font-sans leading-normal">Your guide to astrology, tarot, and spiritual insights from the cosmos.</p>
+</div>
+</div>
+<!-- Search & Filters -->
+<div class="flex flex-col sm:flex-row items-center gap-4 px-4 py-6">
+<div class="flex-grow w-full">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-white/60 flex border-none bg-white/5 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-white focus:outline-0 focus:ring-0 border-none bg-white/5 h-full placeholder:text-white/60 px-4 pl-2 text-base font-normal font-sans leading-normal" placeholder="Search articles by keyword..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-2 font-sans w-full sm:w-auto flex-wrap justify-center">
+<button class="h-10 px-4 text-sm font-medium rounded-lg bg-primary text-white">All</button>
+<button class="h-10 px-4 text-sm font-medium rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors">Astrology</button>
+<button class="h-10 px-4 text-sm font-medium rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors">Tarot</button>
+<button class="h-10 px-4 text-sm font-medium rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors">Numerology</button>
+</div>
+</div>
+<!-- SectionHeader for Featured Post -->
+<h2 class="text-white text-[22px] font-bold font-display leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Featured Post</h2>
+<!-- Featured Card -->
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-lg @xl:flex-row @xl:items-start bg-white/5 p-4 border border-white/10 hover:border-white/20 transition-colors">
+<div class="w-full @xl:w-1/2 bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract image of a celestial conjunction with glowing planets and stars" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPLTNeZ_2ED68BN7Ro66qYV73jm7uU234TqY1ATLLrSDfLFoYjxjzPsfILiMiF3a_9xfXfZ9VI2Kib53Gp9VNmX-8JC9lBI7gCHUC6S5YqcCEl-QuRL5FJZuvaSvcvzJ3pX-QWaQL4muoavlsf2n_ckIMCo6-71XEty4kKichmN91RLmaHb-anOKUOCz-W8Di2fqlsn6UZkXASS4C9hkbjWQFPMd-xB_MfTEoijMIfj3to-mi_DvwS4nimp_B3-HroWCSnH937T0uj");'></div>
+<div class="flex w-full @xl:w-1/2 min-w-72 grow flex-col items-stretch justify-center gap-2 py-4 @xl:px-6 @xl:py-2">
+<p class="text-white text-2xl font-bold font-display leading-tight tracking-[-0.015em]">The Great Conjunction: What It Means for Your Zodiac Sign</p>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1">
+<p class="text-white/70 text-base font-normal font-sans leading-normal">
+                      A deep dive into the astrological significance of this rare celestial event and its impact on your life path. Discover how cosmic shifts can influence your journey.
+                    </p>
+<p class="text-white/60 text-sm font-normal font-sans leading-normal">Published on Dec 21, 2023 by The Oracle</p>
+</div>
+<button class="flex min-w-[84px] max-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-medium leading-normal font-sans transition-colors">
+<span class="truncate">Read More</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SectionHeader for Recent Posts -->
+<h2 class="text-white text-[22px] font-bold font-display leading-tight tracking-[-0.015em] px-4 pb-3 pt-8">Recent Posts</h2>
+<!-- Article Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+<!-- Article Card 1 -->
+<div class="flex flex-col rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="A set of tarot cards laid out on a dark velvet cloth" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBPvQthjd4Vg2qbCl96WJBcsn-K2bw2V6dux63TQ-z0RKAiliaOrBNd6Y3gAnkwVjNSj4dA4ZWRDfE4whAxEEaWjews1dpAf31Cr9DIIri95to2ZlwyRfaIy4wtLAuQk4Zk5jdg7LavQ78E2pHXOmpgniYO8cC_TxeRCR0Y2O_ld3aw9hHv54IEusopvEeoT_xVKPas6MEINzb2isyNj8Qh3VRzYJjdb5fP4ltr83o9anRzE8mWK_XIw-eVxJlvE1mp1qHWPQxdnYBu");'></div>
+<div class="p-4 flex flex-col gap-2 flex-grow">
+<p class="text-white text-lg font-bold font-display leading-tight tracking-[-0.015em]">A Beginner's Guide to Reading Tarot Cards</p>
+<p class="text-white/70 text-sm font-normal font-sans leading-normal flex-grow">Unlock the secrets of the tarot and begin your journey into divination with our comprehensive beginner's guide.</p>
+<p class="text-white/60 text-xs font-normal font-sans leading-normal">Oct 15, 2023 by Luna Celeste</p>
+</div>
+</div>
+<!-- Article Card 2 -->
+<div class="flex flex-col rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Abstract geometric patterns representing numerology" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsmz2NGk2tV8nD7xBLC_gC5pYZVovI_kLDhxBYxHpaGpllSIqzPfTdXL-9d4UL_YGgmBfbpB7e5giRNL5FbRJcwNzDdMZv3VVnbOcMDmKGXo1M3hsC57dprGnTxwNT9bkNeDQOQo8pIY_yuuP266RD0aoiCQBCx19I3GWBN1nuespHAtE9rG2SUQb2uc7LaN9iZXOXJ5Js1AFV5o5E5MWy1DLSvVr9rGQAEDFLmEAEhas5Ud8cvWSkGC-Xf8U32qgcgexyqo15kKsw");'></div>
+<div class="p-4 flex flex-col gap-2 flex-grow">
+<p class="text-white text-lg font-bold font-display leading-tight tracking-[-0.015em]">Understanding Your Numerology Life Path Number</p>
+<p class="text-white/70 text-sm font-normal font-sans leading-normal flex-grow">Calculate and interpret your life path number to gain deeper insights into your personality, challenges, and destiny.</p>
+<p class="text-white/60 text-xs font-normal font-sans leading-normal">Nov 02, 2023 by Numerius Rex</p>
+</div>
+</div>
+<!-- Article Card 3 -->
+<div class="flex flex-col rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="A glowing full moon in a starry night sky" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANIcGxnuYXp8p32OJF_d0yW-yafjm5hz3ADCBO1dQ_KHYq_yns9UNanp7aRzLSwA_s3tFpT7-S8498SPqLEpHYNSBilPHEj8eGKBwu3nbuzQbgZFdSo623uqvc88Kvp3YlrgLYF1IYyr24w7Rtk959B0O0rKt6qfGdcBuEWjlnWty51FPTrpqYyi8KJOY_GQUrBXX7cV08fEjqcf4dMsIDRXHleSsEMuX5nfZqKhnt8XlTLHyGuJV42IcZ7bKv45k1PWpm4I8fLaFf");'></div>
+<div class="p-4 flex flex-col gap-2 flex-grow">
+<p class="text-white text-lg font-bold font-display leading-tight tracking-[-0.015em]">The Spiritual Meaning of a Full Moon</p>
+<p class="text-white/70 text-sm font-normal font-sans leading-normal flex-grow">Explore the powerful energy of the full moon and learn how to harness it for manifestation and release.</p>
+<p class="text-white/60 text-xs font-normal font-sans leading-normal">Dec 01, 2023 by The Oracle</p>
+</div>
+</div>
+<!-- Article Card 4 -->
+<div class="flex flex-col rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Close up of glowing amethyst crystals" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFAnfeA3nywn3T-axJAEKJS84aFL_NjXcZs9G_xy0TJlrlLiyEZhyuEICR2kkbOO--iUoCkFwjtlL0CCWKVnDZkNGXnVb3WPLfaiRIALR8oVdWJ5cJ7LicqmWohBZyo6-awGruv-4UgYWCM_7c3FdQrGkxc81WNjwcSCPwQ8fqSF1QPBuo8mRojURJ5wJSZWWHxsOoWt6X6L44uzQml-ia61Kyf_e24q9XXTdJip1806TeZQtuIW4uY830SO_RQNmPns7I8lQdXRQg");'></div>
+<div class="p-4 flex flex-col gap-2 flex-grow">
+<p class="text-white text-lg font-bold font-display leading-tight tracking-[-0.015em]">Harnessing the Power of Crystal Magic</p>
+<p class="text-white/70 text-sm font-normal font-sans leading-normal flex-grow">Learn which crystals align with your intentions and how to use them to amplify your spiritual practice.</p>
+<p class="text-white/60 text-xs font-normal font-sans leading-normal">Jan 10, 2024 by Crystal Clear</p>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-2 p-8 font-sans">
+<button class="flex items-center justify-center size-10 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-white/70 bg-primary/30 text-white font-medium">1</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors font-medium">2</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors font-medium">3</button>
+<button class="flex items-center justify-center size-10 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="border-t border-solid border-white/10 mt-10 px-10 py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-4 text-white">
+<div class="size-5 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-white/90 text-lg font-bold font-display leading-tight tracking-[-0.015em]">Cosmic Insights</h2>
+</div>
+<div class="flex items-center gap-6 text-white/70 font-sans text-sm">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<!-- Social Icons would go here -->
+</div>
+</div>
+<p class="text-center text-white/50 text-xs mt-6 font-sans">© 2024 Cosmic Insights. All rights reserved.</p>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>

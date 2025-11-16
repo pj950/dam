@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fortune-telling Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#FBBF24", // yellow-400
+            "background-light": "#F3F4F6", // gray-100
+            "background-dark": "#110E1C",
+            "paper": "#f5f1e8",
+            "paper-dark": "#2a2622",
+          },
+          fontFamily: {
+            display: ["Noto Sans SC", "sans-serif"],
+            trigram: ['"Courier New"', 'monospace']
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem", // 8px
+          },
+          backgroundImage: {
+            'paper-texture': "url('https://www.transparenttextures.com/patterns/rice-paper-3.png')",
+          }
+        },
+      },
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+    }
+    .gradient-bg {
+      background: radial-gradient(circle at top, #3a225c, #110E1C 70%);
+    }
+    .dark .gradient-bg {
+      background: radial-gradient(circle at top, #3a225c, #110E1C 70%);
+    }
+    .light .gradient-bg {
+      background: radial-gradient(circle at top, #e9d5ff, #F3F4F6 70%);
+    }
+    .card-border-gradient {
+      border: 1px solid;
+      border-image-source: linear-gradient(to bottom, rgba(251, 191, 36, 0.4), rgba(251, 191, 36, 0.1));
+      border-image-slice: 1;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .dark .card-border-gradient {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    .light .card-border-gradient {
+        border-image-source: linear-gradient(to bottom, rgba(168, 85, 247, 0.4), rgba(168, 85, 247, 0.1));
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .active-tab {
+      border-bottom-color: #FBBF24;
+      color: #FBBF24;
+    }
+    .light .active-tab {
+      border-bottom-color: #8B5CF6;color: #8B5CF6;
+    }
+    .scroll-container {
+      background-color: var(--scroll-bg);
+      background-image: var(--scroll-texture);
+      border-width: 1px;
+      border-color: var(--scroll-border);
+      color: var(--scroll-text);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .dark .scroll-container {
+       --scroll-bg: #1c1814;
+       --scroll-texture: url('https://www.transparenttextures.com/patterns/dark-paper.png');
+       --scroll-border: #4a3a2a;
+       --scroll-text: #d1c7b8;
+    }
+    .light .scroll-container {
+       --scroll-bg: #fdfaf3;
+       --scroll-texture: url('https://www.transparenttextures.com/patterns/rice-paper-3.png');
+       --scroll-border: #dcd3c3;
+       --scroll-text: #4a3a2a;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="min-h-screen" id="root">
+<header class="bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200/20 dark:border-gray-800/50">
+<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center">
+<a class="flex-shrink-0 flex items-center space-x-2" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">balance</span>
+<span class="text-lg font-bold text-gray-800 dark:text-white">东方命理</span>
+</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">探索</a>
+<a class="text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">工具</a>
+<a class="text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">每日一签</a>
+<a class="text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">祈福点灯</a>
+<a class="text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">订阅测算</a>
+<a class="text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">价格</a>
+</div>
+<div class="flex items-center">
+<a class="px-4 py-2 text-sm font-medium text-black bg-primary rounded-md hover:bg-yellow-300 transition-colors" href="#">
+              免费试算
+            </a>
+</div>
+</div>
+</nav>
+</header>
+<main class="gradient-bg">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+<div class="text-center mb-12">
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-wide">天命解读：您的专属命书</h1>
+<p class="mt-4 text-lg text-gray-400">洞悉乾坤，为您揭示命运的奥秘</p>
+</div>
+<div class="scroll-container rounded-lg p-6 sm:p-10 flex flex-col lg:flex-row gap-10">
+<aside class="lg:w-1/3 flex-shrink-0 space-y-8">
+<div class="text-center border-b border-[var(--scroll-border)] pb-6">
+<p class="text-[var(--scroll-text)] opacity-70">命主</p>
+<p class="text-2xl font-bold text-[var(--scroll-text)] mt-1">张伟</p>
+<p class="text-sm text-[var(--scroll-text)] opacity-70 mt-2">1990年1月1日 08:00 AM</p>
+<div class="mt-4 pt-4">
+<p class="text-sm text-[var(--scroll-text)] opacity-70">八字</p>
+<p class="text-xl font-mono tracking-widest text-[var(--scroll-text)] mt-1">己巳 丙子 庚辰 庚辰</p>
+</div>
+</div>
+<div class="text-center border-b border-[var(--scroll-border)] pb-6">
+<h3 class="text-lg font-bold text-[var(--scroll-text)] mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-600 dark:text-primary mr-2 text-xl">donut_small</span>
+                    五行分析
+                </h3>
+<div class="space-y-3 text-sm">
+<div class="flex justify-between items-center text-[var(--scroll-text)]">
+<span>金 (Metal)</span>
+<div class="w-1/2 bg-stone-300 dark:bg-stone-600/50 rounded-full h-2">
+<div class="bg-amber-400 h-2 rounded-full" style="width: 45%"></div>
+</div>
+<span class="font-semibold w-10 text-right">45%</span>
+</div>
+<div class="flex justify-between items-center text-[var(--scroll-text)]">
+<span>木 (Wood)</span>
+<div class="w-1/2 bg-stone-300 dark:bg-stone-600/50 rounded-full h-2">
+<div class="bg-green-600 h-2 rounded-full" style="width: 10%"></div>
+</div>
+<span class="font-semibold w-10 text-right">10%</span>
+</div>
+<div class="flex justify-between items-center text-[var(--scroll-text)]">
+<span>水 (Water)</span>
+<div class="w-1/2 bg-stone-300 dark:bg-stone-600/50 rounded-full h-2">
+<div class="bg-blue-600 h-2 rounded-full" style="width: 20%"></div>
+</div>
+<span class="font-semibold w-10 text-right">20%</span>
+</div>
+<div class="flex justify-between items-center text-[var(--scroll-text)]">
+<span>火 (Fire)</span>
+<div class="w-1/2 bg-stone-300 dark:bg-stone-600/50 rounded-full h-2">
+<div class="bg-red-600 h-2 rounded-full" style="width: 15%"></div>
+</div>
+<span class="font-semibold w-10 text-right">15%</span>
+</div>
+<div class="flex justify-between items-center text-[var(--scroll-text)]">
+<span>土 (Earth)</span>
+<div class="w-1/2 bg-stone-300 dark:bg-stone-600/50 rounded-full h-2">
+<div class="bg-orange-500 h-2 rounded-full" style="width: 10%"></div>
+</div>
+<span class="font-semibold w-10 text-right">10%</span>
+</div>
+</div>
+</div>
+<div class="text-center">
+<h3 class="text-lg font-bold text-[var(--scroll-text)] mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-600 dark:text-primary mr-2 text-xl">bookmark</span>
+                    命格简评
+                </h3>
+<p class="text-[var(--scroll-text)] opacity-90 leading-relaxed text-sm">
+                    您的命格属金，性格坚毅果敢，有领导才能。五行之中金元素最为旺盛，需注意平衡，可多接触水、木属性的事物来调和。整体运势呈上升趋势，中年后事业将有大成。
+                </p>
+</div>
+</aside>
+<div class="lg:w-2/3 lg:border-l lg:border-[var(--scroll-border)] lg:pl-10">
+<div class="prose prose-lg max-w-none text-[var(--scroll-text)] prose-headings:text-[var(--scroll-text)] prose-p:text-[var(--scroll-text)] prose-p:opacity-90 prose-strong:text-[var(--scroll-text)] prose-li:text-[var(--scroll-text)] prose-li:opacity-90">
+<h3 class="flex items-start"><span class="font-trigram text-2xl mr-4 text-amber-600 dark:text-primary">☰</span> <div><span class="font-bold">事业财运</span><br/><span class="text-sm opacity-70 font-normal">乾为天 - 奋发图强</span></div></h3>
+<p>2024年对您来说是事业上充满机遇与挑战的一年。上半年可能会遇到一些小的阻碍，但凭借您的毅力和智慧，都能迎刃而解。下半年运势将显著提升，尤其是在事业和财务方面，将有突破性的进展。如乾卦所示，自强不息，终能大成。</p>
+<h3 class="flex items-start"><span class="font-trigram text-2xl mr-4 text-amber-600 dark:text-primary">☵</span> <div><span class="font-bold">爱情婚姻</span><br/><span class="text-sm opacity-70 font-normal">坎为水 - 深入沟通</span></div></h3>
+<p>您天生具有敏锐的洞察力和强烈的责任感，这为您赢得了许多人的尊重。在情感关系中，需要注意沟通方式，坎卦提醒您，真诚的交流能化解险阻。有时可能因为过于直接而无意中伤害他人，需要注意方式。您对美有独特的追求，热爱生活，富有情趣。</p>
+<h3 class="flex items-start"><span class="font-trigram text-2xl mr-4 text-amber-600 dark:text-primary">☲</span> <div><span class="font-bold">健康建议</span><br/><span class="text-sm opacity-70 font-normal">离为火 - 心神安宁</span></div></h3>
+<p>离卦象征火与光明，也关乎心神。今年需特别注意心血管及眼部健康。保持规律作息，避免过度劳累。精神层面，宜多静坐冥想，保持心境平和，避免焦躁情绪影响身心。适度进行有氧运动，如散步、太极，有助气血流通。</p>
+<div class="!mt-12 p-6 rounded-lg bg-amber-500/10 border border-amber-500/30">
+<h4 class="!mt-0 !text-lg !font-semibold text-amber-700 dark:text-amber-300">玄机锦囊</h4>
+<p class="!mt-2 !text-base text-amber-800 dark:text-amber-200 opacity-95">今年是拓展人脉的关键时期。建议您多参加社交活动，结识不同领域的朋友，他们可能会成为您未来的贵人。同时，保持谦虚学习的态度，不断提升自我，方能抓住时代赋予的机遇。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-3xl">balance</span>
+<h3 class="text-lg font-bold text-gray-800 dark:text-white">东方命理</h3>
+</div>
+<p class="mt-4 text-sm text-gray-500 dark:text-gray-400">结合千年东方智慧与现代AI技术，为您提供专业、准确、值得信赖的命理分析服务。</p>
+</div>
+<div>
+<h4 class="font-semibold text-gray-700 dark:text-gray-200">产品服务</h4>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">八字详批</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">AI解读</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">运程预测</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">命理工具</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-gray-700 dark:text-gray-200">公司</h4>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">关于我们</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">联系方式</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">隐私政策</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">服务条款</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-gray-700 dark:text-gray-200">资源</h4>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">命理知识</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">常见问题</a></li>
+<li><a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">用户支持</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8 flex flex-col sm:flex-row justify-between items-center">
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 东方命理. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg></a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.014c0 4.437 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.014C22 6.477 17.523 2 12 2z" fill-rule="evenodd"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
