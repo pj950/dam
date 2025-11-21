@@ -21,9 +21,8 @@ export default function Header() {
 
                 <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-subtext-light dark:text-subtext-dark">
                     <Link href="/" className="hover:text-primary transition-colors">探玄</Link>
-                    <Link href="/daily" className="hover:text-primary transition-colors">起卦</Link>
-                    <Link href="/daily" className="hover:text-primary transition-colors">今日运势</Link>
-                    <Link href="/" className="hover:text-primary transition-colors">命盘</Link>
+                    <Link href="/daily" className="hover:text-primary transition-colors">每日一签</Link>
+                    <Link href="/rituals" className="hover:text-primary transition-colors">祈福点灯</Link>
                     <Link href="/pricing" className="hover:text-primary transition-colors">定价</Link>
                 </div>
 
