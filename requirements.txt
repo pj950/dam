@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+lunar-python
+pydantic
+sqlalchemy
+asyncpg
+python-dotenv
+openai
+stripe
