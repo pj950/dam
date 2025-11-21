@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import BaziChart from "@/components/BaziChart";
 import { api } from "@/lib/api";
@@ -9,7 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import toast from "react-hot-toast";
 
-export default function ChartPage() {
+function ChartContent() {
     const searchParams = useSearchParams();
     const [chartData, setChartData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
@@ -80,6 +80,7 @@ export default function ChartPage() {
                     toast("Using offline mode", { icon: '⚠️' });
                     setChartData({
                         name,
+                        gender: gender || 'male',
                         solar_date: `${date} ${time}`,
                         lunar_date: "Mock Lunar Date",
                         year_pillar: { gan: "甲", zhi: "子", gan_god: "Friend", zhi_gods: ["Friend"], hidden_stems: ["Gui"], nayin: "Gold", xingyun: "Good", shen_sha: ["Nobleman"] },
@@ -108,39 +109,39 @@ export default function ChartPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark transition-colors duration-300">
-                <div className="background-pattern">
-                    <Header />
-                    <div className="min-h-[80vh] flex items-center justify-center">
-                        <div className="animate-pulse text-xl font-serif text-primary">正在推演天机...</div>
-                    </div>
-                    <Footer />
-                </div>
+            <div className="min-h-[80vh] flex items-center justify-center">
+                <div className="animate-pulse text-xl font-serif text-primary">正在推演天机...</div>
             </div>
         );
     }
 
     if (error) {
         return (
-            <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark transition-colors duration-300">
-                <div className="background-pattern">
-                    <Header />
-                    <div className="min-h-[80vh] flex items-center justify-center">
-                        <div className="text-red-500">{error}</div>
-                    </div>
-                    <Footer />
-                </div>
+            <div className="min-h-[80vh] flex items-center justify-center">
+                <div className="text-red-500">{error}</div>
             </div>
         );
     }
 
     return (
+        <main className="py-12 px-4">
+            {chartData && <BaziChart data={chartData} />}
+        </main>
+    );
+}
+
+export default function ChartPage() {
+    return (
         <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark transition-colors duration-300">
             <div className="background-pattern">
                 <Header />
-                <main className="py-12 px-4">
-                    {chartData && <BaziChart data={chartData} />}
-                </main>
+                <Suspense fallback={
+                    <div className="min-h-[80vh] flex items-center justify-center">
+                        <div className="animate-pulse text-xl font-serif text-primary">加载中...</div>
+                    </div>
+                }>
+                    <ChartContent />
+                </Suspense>
                 <Footer />
             </div>
         </div>
