@@ -13,6 +13,7 @@ interface PillarData {
 
 interface ChartData {
     name: string;
+    gender: string;
     solar_date: string;
     lunar_date: string;
     day_master: string;
