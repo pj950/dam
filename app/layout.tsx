@@ -18,8 +18,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={`${inter.variable} ${playfair.variable} font-sans bg-space-900 text-white min-h-screen`}>
+        <html lang="en" className="dark">
+            <body className={`${inter.variable} ${playfair.variable} font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark min-h-screen transition-colors duration-300`}>
                 <AuthProvider>
                     {children}
                     <Toaster position="top-center" toastOptions={{
