@@ -1,4 +1,12 @@
 import React from 'react';
+import Image from 'next/image';
+
+const LAMPS = [
+    "七星灯", "三宝灯", "九子离火灯", "五福灯", "传愿灯", "偏财灯", "健康灯", "发横财灯",
+    "四季平安灯", "回财灯", "太岁灯", "好运灯", "姻缘灯", "安产灯", "平安灯", "忏悔灯",
+    "招财灯", "文昌灯", "斩烂桃花灯", "智慧灯", "暴富灯", "本命灯", "正缘桃花灯", "求子灯",
+    "消灾灯", "添寿灯", "爱宠无忧灯", "贵人灯", "追忆灯", "防小人灯", "除秽灯", "顺风顺水灯"
+];
 
 export default function RitualsPage() {
     return (
@@ -9,57 +17,26 @@ export default function RitualsPage() {
                     点亮心灯，祈愿平安。在线供灯，积福纳祥。
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    {/* Ritual Card 1 */}
-                    <div className="relative p-8 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark shadow-lg group hover:border-primary transition-colors">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                        <div className="relative z-10">
-                            <div className="w-20 h-20 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center text-4xl">
-                                🕯️
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+                    {LAMPS.map((lamp) => (
+                        <div key={lamp} className="relative p-6 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark shadow-lg group hover:border-primary transition-all duration-300 hover:-translate-y-1">
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
+                            <div className="relative z-10 flex flex-col items-center">
+                                <div className="w-full aspect-square relative mb-4 rounded-lg overflow-hidden bg-black/5 dark:bg-white/5">
+                                    <Image
+                                        src={`/images/${lamp}.png`}
+                                        alt={lamp}
+                                        fill
+                                        className="object-contain p-2 group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                </div>
+                                <h3 className="text-lg font-bold text-text-light dark:text-text-dark mb-4">{lamp}</h3>
+                                <button className="w-full py-2 bg-primary text-gray-900 font-bold rounded-lg hover:opacity-90 transition-opacity text-sm shadow-lg shadow-primary/20">
+                                    立即供灯
+                                </button>
                             </div>
-                            <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-4">平安灯</h3>
-                            <p className="text-subtext-light dark:text-subtext-dark mb-6">
-                                祈求家人平安健康，诸事顺遂，消灾延寿。
-                            </p>
-                            <button className="w-full py-3 bg-primary text-gray-900 font-bold rounded-lg hover:opacity-90 transition-opacity">
-                                立即供灯
-                            </button>
                         </div>
-                    </div>
-
-                    {/* Ritual Card 2 */}
-                    <div className="relative p-8 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark shadow-lg group hover:border-primary transition-colors">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                        <div className="relative z-10">
-                            <div className="w-20 h-20 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center text-4xl">
-                                📚
-                            </div>
-                            <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-4">智慧灯</h3>
-                            <p className="text-subtext-light dark:text-subtext-dark mb-6">
-                                开启智慧，学业有成，金榜题名，事业通达。
-                            </p>
-                            <button className="w-full py-3 bg-primary text-gray-900 font-bold rounded-lg hover:opacity-90 transition-opacity">
-                                立即供灯
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Ritual Card 3 */}
-                    <div className="relative p-8 bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark shadow-lg group hover:border-primary transition-colors">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                        <div className="relative z-10">
-                            <div className="w-20 h-20 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center text-4xl">
-                                💰
-                            </div>
-                            <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-4">招财灯</h3>
-                            <p className="text-subtext-light dark:text-subtext-dark mb-6">
-                                财源广进，生意兴隆，正财偏财，皆得丰收。
-                            </p>
-                            <button className="w-full py-3 bg-primary text-gray-900 font-bold rounded-lg hover:opacity-90 transition-opacity">
-                                立即供灯
-                            </button>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
