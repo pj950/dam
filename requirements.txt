@@ -2,6 +2,7 @@ fastapi
 uvicorn
 lunar-python
 pydantic
+pydantic-settings
 sqlalchemy
 asyncpg
 python-dotenv
