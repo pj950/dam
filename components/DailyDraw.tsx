@@ -8,9 +8,7 @@ interface Lot {
     poem_text: string;
     poem_meaning: string;
     explanation: string;
-    detailed_explanation: string;
-    prediction: Record<string, string>;
-    interpretation: {
+    detailed_explanation: {
         essence: string;
         advice: string;
         comprehensive: string;
@@ -235,17 +233,17 @@ export default function DailyDraw() {
                         <div className="space-y-6 mb-8">
                             <div className="bg-brand-red/5 p-4 rounded-lg border border-brand-red/10">
                                 <h4 className="text-brand-red font-bold text-lg mb-2">本签精髓</h4>
-                                <p className="text-gray-800 font-serif font-bold text-lg">{lot?.interpretation.essence}</p>
+                                <p className="text-gray-800 font-serif font-bold text-lg">{lot?.detailed_explanation?.essence}</p>
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <h4 className="text-gray-900 font-bold text-lg mb-2">凡事做事</h4>
-                                    <p className="text-gray-600 font-serif text-sm leading-relaxed">{lot?.interpretation.advice}</p>
+                                    <p className="text-gray-600 font-serif text-sm leading-relaxed">{lot?.detailed_explanation?.advice}</p>
                                 </div>
                                 <div>
                                     <h4 className="text-gray-900 font-bold text-lg mb-2">全面详解</h4>
-                                    <p className="text-gray-600 font-serif text-sm leading-relaxed">{lot?.interpretation.comprehensive}</p>
+                                    <p className="text-gray-600 font-serif text-sm leading-relaxed">{lot?.detailed_explanation?.comprehensive}</p>
                                 </div>
                             </div>
                         </div>
