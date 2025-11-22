@@ -85,51 +85,81 @@ export default function DailyDraw() {
                         className={`relative cursor-pointer transition-transform duration-300 ${shaking ? "animate-shake" : "hover:scale-105"}`}
                         style={{ transformStyle: 'preserve-3d' }}
                     >
-                        {/* Sticks Container (Inside/Behind) */}
-                        <div className={`absolute -top-20 left-1/2 transform -translate-x-1/2 w-40 h-40 flex justify-center items-end overflow-visible z-0 ${shaking ? "animate-sticks-shake" : ""}`}>
+                        {/* --- High-Fidelity CSS 3D Cylinder --- */}
+
+                        {/* 1. Back Rim (Inner Top) - Darker for depth */}
+                        <div className="absolute -top-8 left-0 w-56 h-16 bg-[#3E1C03] rounded-[100%] transform translate-z-[-2px] shadow-inner"></div>
+
+                        {/* 2. Sticks Container (Inside) - Positioned between back and front */}
+                        <div className={`absolute -top-16 left-0 w-56 h-40 flex justify-center items-end overflow-hidden z-0 ${shaking ? "animate-sticks-shake" : ""}`}>
                             {/* Render multiple sticks for volume */}
-                            <div className="relative w-full h-full">
-                                {[...Array(12)].map((_, i) => (
+                            <div className="relative w-40 h-full">
+                                {[...Array(15)].map((_, i) => (
                                     <div
                                         key={i}
-                                        className="absolute bottom-0 w-3 bg-[#D2B48C] border-x border-[#8B4513] rounded-t-sm shadow-sm origin-bottom"
+                                        className="absolute bottom-0 w-3 bg-gradient-to-r from-[#D2B48C] to-[#C19A6B] border-x border-[#8B4513]/50 rounded-t-sm shadow-sm origin-bottom"
                                         style={{
-                                            height: `${140 + Math.random() * 40}px`,
-                                            left: `${10 + Math.random() * 80}%`,
-                                            transform: `rotate(${Math.random() * 20 - 10}deg) translateZ(-${Math.random() * 20}px)`,
+                                            height: `${120 + Math.random() * 50}px`,
+                                            left: `${5 + Math.random() * 90}%`,
+                                            transform: `rotate(${Math.random() * 30 - 15}deg) translateZ(-${Math.random() * 30}px)`,
                                             zIndex: i
                                         }}
-                                    ></div>
+                                    >
+                                        {/* Stick details (red tip) */}
+                                        <div className="w-full h-2 bg-brand-red/80 absolute top-2 opacity-70"></div>
+                                    </div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* 3D Cylinder Image (Front) */}
-                        <div className="relative z-20 w-64 h-80 drop-shadow-2xl">
-                            <img
-                                src="/images/bamboo-cylinder.png"
-                                alt="Bamboo Cylinder"
-                                className="w-full h-full object-contain"
-                            />
-                        </div>
-
-                        {/* Falling Stick Animation (Popping out) */}
+                        {/* 3. Falling Stick Animation (Popping out) */}
                         {falling && (
-                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-4 h-64 bg-[#D2B48C] border border-[#8B4513] rounded-sm z-50 animate-fall-out shadow-lg origin-bottom">
-                                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-[12px] text-[#8B4513] font-bold writing-vertical-rl opacity-80">每日一签</div>
+                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-4 h-64 bg-gradient-to-r from-[#D2B48C] to-[#C19A6B] border border-[#8B4513] rounded-sm z-50 animate-fall-out shadow-xl origin-bottom">
+                                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-[12px] text-[#8B4513] font-bold writing-vertical-rl opacity-90">每日一签</div>
+                                <div className="w-full h-3 bg-brand-red absolute top-2"></div>
                             </div>
                         )}
 
-                        {/* Fallen Stick (Result) - Resting ON TOP of the cylinder */}
+                        {/* 4. Front Body (Main Cylinder) - Complex Gradients for Realism */}
+                        <div className="w-56 h-80 relative z-10 rounded-b-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                            {/* Base Gradient (Cylinder Shape) */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#5D2906] via-[#A0522D] to-[#5D2906]"></div>
+
+                            {/* Wood Grain Texture Overlay */}
+                            <div className="absolute inset-0 opacity-20 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#3E1C03_10px,#3E1C03_12px)] mix-blend-overlay"></div>
+
+                            {/* Vertical Highlights (Cylindrical Shine) */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-white/10 to-black/40 pointer-events-none"></div>
+
+                            {/* Bamboo Nodes (Horizontal Lines) */}
+                            <div className="absolute top-1/4 w-full h-1 bg-[#3E1C03]/60 blur-[1px] shadow-sm"></div>
+                            <div className="absolute bottom-1/4 w-full h-1 bg-[#3E1C03]/60 blur-[1px] shadow-sm"></div>
+
+                            {/* Character Badge */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-28 h-28 border-4 border-[#D4AF37]/80 rounded-full flex items-center justify-center bg-gradient-to-br from-[#5D2906] to-[#3E1C03] shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)]">
+                                    <span className="text-5xl font-serif text-[#D4AF37] font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">签</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 5. Front Rim (Outer Top Lip) - The key to 3D look */}
+                        <div className="absolute -top-8 left-0 w-56 h-16 bg-gradient-to-b from-[#8B4513] to-[#5D2906] rounded-[100%] border-b border-[#3E1C03]/50 z-20 shadow-md">
+                            {/* Inner shadow to suggest opening depth */}
+                            <div className="absolute top-1 left-1 right-1 bottom-1 bg-[#2A1202] rounded-[100%] shadow-[inset_0_5px_10px_rgba(0,0,0,0.8)]"></div>
+                        </div>
+
+                        {/* 6. Fallen Stick (Result) - Resting ON TOP of the cylinder */}
                         {stickVisible && (
                             <div
                                 onClick={revealResult}
-                                className="absolute top-32 left-1/2 transform -translate-x-1/2 w-8 h-80 bg-[#D2B48C] border-2 border-[#8B4513] rounded-md shadow-[0_10px_20px_rgba(0,0,0,0.4)] flex items-center justify-center hover:bg-[#E6CFA3] transition-colors z-50 animate-land-on-cylinder cursor-pointer origin-center rotate-12"
+                                className="absolute top-20 left-1/2 transform -translate-x-1/2 w-8 h-80 bg-gradient-to-r from-[#E6CFA3] to-[#D2B48C] border-2 border-[#8B4513] rounded-md shadow-[0_15px_30px_rgba(0,0,0,0.5)] flex items-center justify-center hover:brightness-110 transition-all z-50 animate-land-on-cylinder cursor-pointer origin-center rotate-12"
                             >
                                 <span className="writing-vertical-rl text-[#8B4513] font-bold font-serif text-xl tracking-widest py-6">
                                     点击解签
                                 </span>
-                                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-[#D4AF37] text-lg animate-pulse whitespace-nowrap font-bold drop-shadow-md">
+                                <div className="w-full h-4 bg-brand-red absolute top-2"></div>
+                                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-[#D4AF37] text-lg animate-pulse whitespace-nowrap font-bold drop-shadow-md bg-black/50 px-3 py-1 rounded-full">
                                     点击查看
                                 </div>
                             </div>
@@ -138,7 +168,7 @@ export default function DailyDraw() {
 
                     {/* Instruction Text */}
                     {!shaking && !falling && !stickVisible && (
-                        <p className="absolute bottom-10 text-gold-400/60 text-sm uppercase tracking-widest animate-pulse">
+                        <p className="absolute bottom-10 text-gold-400/80 text-sm uppercase tracking-widest animate-pulse font-bold drop-shadow-md">
                             点击竹筒摇签
                         </p>
                     )}
