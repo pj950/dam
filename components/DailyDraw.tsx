@@ -3,11 +3,18 @@
 import { useState, useEffect } from "react";
 
 interface Lot {
-    date: string;
     lot_id: number;
     title: string;
-    meaning: string;
-    lucky_direction: string;
+    poem_text: string;
+    poem_meaning: string;
+    explanation: string;
+    detailed_explanation: string;
+    prediction: Record<string, string>;
+    interpretation: {
+        essence: string;
+        advice: string;
+        comprehensive: string;
+    };
     ai_interpretation: string;
 }
 
@@ -74,7 +81,7 @@ export default function DailyDraw() {
     };
 
     return (
-        <div className="max-w-2xl mx-auto text-center px-4">
+        <div className="max-w-3xl mx-auto text-center px-4">
             <h2 className="text-4xl font-serif text-gold-400 mb-12 font-display">每日一签</h2>
 
             {!showResult ? (
@@ -174,37 +181,86 @@ export default function DailyDraw() {
                     )}
                 </div>
             ) : (
-                <div className="animate-in zoom-in duration-500 max-w-md mx-auto">
-                    {/* Result Card */}
-                    <div className="bg-[#FFF8F0] text-black p-8 rounded-xl shadow-2xl border-4 border-gold-400 relative overflow-hidden mb-8">
-                        <div className="absolute top-0 left-0 w-full h-2 bg-brand-red" />
-                        <div className="absolute bottom-0 left-0 w-full h-2 bg-brand-red" />
+                <div className="animate-in zoom-in duration-500 w-full max-w-3xl mx-auto">
+                    {/* Result Card - Traditional Style */}
+                    <div className="bg-[#FFF8F0] text-black p-8 md:p-12 rounded-xl shadow-2xl border-4 border-gold-400 relative overflow-hidden mb-8 text-left">
+                        {/* Decorative Corners */}
+                        <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-brand-red rounded-tl-xl"></div>
+                        <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-brand-red rounded-tr-xl"></div>
+                        <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-brand-red rounded-bl-xl"></div>
+                        <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-brand-red rounded-br-xl"></div>
 
-                        <div className="text-brand-red font-bold text-xl tracking-widest uppercase border-b-2 border-brand-red pb-2 mb-6">
-                            第 {lot?.lot_id} 签
+                        {/* Header: Title */}
+                        <div className="text-center mb-10 border-b-2 border-gold-400/30 pb-6">
+                            <h3 className="text-3xl md:text-4xl font-serif font-bold text-brand-red tracking-widest mb-2">{lot?.title}</h3>
+                            <p className="text-gold-400 font-serif text-lg">关帝灵签</p>
                         </div>
 
-                        <div className="space-y-6">
-                            <h3 className="text-4xl font-serif font-bold text-gray-900">{lot?.title}</h3>
-                            <p className="text-lg text-gray-600 italic font-serif">"{lot?.meaning}"</p>
+                        {/* Poem Section */}
+                        <div className="flex flex-col md:flex-row gap-8 mb-10">
+                            {/* Poem Text (Vertical on Desktop if possible, or centered block) */}
+                            <div className="flex-1 bg-gold-400/10 p-6 rounded-lg border border-gold-400/30 flex items-center justify-center">
+                                <div className="font-serif text-2xl md:text-3xl text-gray-800 leading-loose text-center whitespace-pre-line font-bold">
+                                    {lot?.poem_text}
+                                </div>
+                            </div>
+
+                            {/* Meaning & Explanation */}
+                            <div className="flex-1 space-y-6">
+                                <div>
+                                    <h4 className="text-brand-red font-bold text-lg mb-2 border-l-4 border-brand-red pl-3">诗意</h4>
+                                    <p className="text-gray-700 font-serif leading-relaxed">{lot?.poem_meaning}</p>
+                                </div>
+                                <div>
+                                    <h4 className="text-brand-red font-bold text-lg mb-2 border-l-4 border-brand-red pl-3">解曰</h4>
+                                    <p className="text-gray-700 font-serif leading-relaxed">{lot?.explanation}</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="w-full pt-6 mt-6 border-t border-gray-200">
-                            <p className="text-xs text-gray-500 uppercase mb-1">吉利方位</p>
-                            <p className="font-bold text-brand-red text-lg">{lot?.lucky_direction}</p>
+                        {/* Prediction (仙机) */}
+                        <div className="mb-10">
+                            <h4 className="text-brand-red font-bold text-lg mb-4 border-l-4 border-brand-red pl-3">仙机</h4>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/50 p-4 rounded-lg border border-gold-400/20">
+                                {lot?.prediction && Object.entries(lot.prediction).map(([key, value]) => (
+                                    <div key={key} className="flex items-center space-x-2">
+                                        <span className="text-gray-500 font-bold text-sm">{key}：</span>
+                                        <span className="text-gray-900 font-serif font-bold">{value}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Detailed Interpretation (解签) */}
+                        <div className="space-y-6 mb-8">
+                            <div className="bg-brand-red/5 p-4 rounded-lg border border-brand-red/10">
+                                <h4 className="text-brand-red font-bold text-lg mb-2">本签精髓</h4>
+                                <p className="text-gray-800 font-serif font-bold text-lg">{lot?.interpretation.essence}</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 className="text-gray-900 font-bold text-lg mb-2">凡事做事</h4>
+                                    <p className="text-gray-600 font-serif text-sm leading-relaxed">{lot?.interpretation.advice}</p>
+                                </div>
+                                <div>
+                                    <h4 className="text-gray-900 font-bold text-lg mb-2">全面详解</h4>
+                                    <p className="text-gray-600 font-serif text-sm leading-relaxed">{lot?.interpretation.comprehensive}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* AI Interpretation Section */}
-                    <div className="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-gold-400/30 shadow-lg text-left">
+                    {/* AI Interpretation Section - Modern Insight */}
+                    <div className="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-gold-400/30 shadow-lg text-left mb-8">
                         <div className="flex items-center mb-4">
                             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-gold-400 to-yellow-200 flex items-center justify-center mr-3">
                                 <span className="text-xs font-bold text-black">AI</span>
                             </div>
-                            <h4 className="text-lg font-bold text-gold-400">大师解签</h4>
+                            <h4 className="text-lg font-bold text-gold-400">大师现代解读</h4>
                         </div>
 
-                        <div className="min-h-[150px] text-sm leading-relaxed text-text-light dark:text-text-dark/90">
+                        <div className="min-h-[100px] text-sm leading-relaxed text-text-light dark:text-text-dark/90">
                             {aiLoading ? (
                                 <div className="flex items-center space-x-2 text-gold-400/70">
                                     <span className="animate-pulse">正在推演天机...</span>
@@ -215,16 +271,18 @@ export default function DailyDraw() {
                         </div>
                     </div>
 
-                    <button
-                        onClick={() => {
-                            setShowResult(false);
-                            setLot(null);
-                            setDisplayedAiText("");
-                        }}
-                        className="mt-8 px-8 py-3 bg-gold-400 text-black font-bold rounded-full hover:bg-yellow-400 transition-colors shadow-lg shadow-gold-400/20"
-                    >
-                        再求一签
-                    </button>
+                    <div className="text-center">
+                        <button
+                            onClick={() => {
+                                setShowResult(false);
+                                setLot(null);
+                                setDisplayedAiText("");
+                            }}
+                            className="px-10 py-3 bg-gold-400 text-black font-bold rounded-full hover:bg-yellow-400 transition-colors shadow-lg shadow-gold-400/20"
+                        >
+                            再求一签
+                        </button>
+                    </div>
                 </div>
             )}
 
