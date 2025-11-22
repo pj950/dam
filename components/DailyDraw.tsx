@@ -85,21 +85,16 @@ export default function DailyDraw() {
                         className={`relative cursor-pointer transition-transform duration-300 ${shaking ? "animate-shake" : "hover:scale-105"}`}
                         style={{ transformStyle: 'preserve-3d' }}
                     >
-                        {/* --- 3D Cylinder Structure --- */}
-
-                        {/* 1. Back Rim (Inner Top) */}
-                        <div className="absolute -top-8 left-0 w-56 h-16 bg-[#3E1C03] rounded-[100%] transform translate-z-[-1px]"></div>
-
-                        {/* 2. Sticks Container (Inside) */}
-                        <div className={`absolute -top-16 left-0 w-56 h-40 flex justify-center items-end overflow-hidden z-0 ${shaking ? "animate-sticks-shake" : ""}`}>
+                        {/* Sticks Container (Inside/Behind) */}
+                        <div className={`absolute -top-20 left-1/2 transform -translate-x-1/2 w-40 h-40 flex justify-center items-end overflow-visible z-0 ${shaking ? "animate-sticks-shake" : ""}`}>
                             {/* Render multiple sticks for volume */}
-                            <div className="relative w-40 h-full">
+                            <div className="relative w-full h-full">
                                 {[...Array(12)].map((_, i) => (
                                     <div
                                         key={i}
                                         className="absolute bottom-0 w-3 bg-[#D2B48C] border-x border-[#8B4513] rounded-t-sm shadow-sm origin-bottom"
                                         style={{
-                                            height: `${120 + Math.random() * 40}px`,
+                                            height: `${140 + Math.random() * 40}px`,
                                             left: `${10 + Math.random() * 80}%`,
                                             transform: `rotate(${Math.random() * 20 - 10}deg) translateZ(-${Math.random() * 20}px)`,
                                             zIndex: i
@@ -109,43 +104,27 @@ export default function DailyDraw() {
                             </div>
                         </div>
 
-                        {/* 3. Falling Stick Animation (Popping out) */}
+                        {/* 3D Cylinder Image (Front) */}
+                        <div className="relative z-20 w-64 h-80 drop-shadow-2xl">
+                            <img
+                                src="/images/bamboo-cylinder.png"
+                                alt="Bamboo Cylinder"
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+
+                        {/* Falling Stick Animation (Popping out) */}
                         {falling && (
                             <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-4 h-64 bg-[#D2B48C] border border-[#8B4513] rounded-sm z-50 animate-fall-out shadow-lg origin-bottom">
                                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-[12px] text-[#8B4513] font-bold writing-vertical-rl opacity-80">每日一签</div>
                             </div>
                         )}
 
-                        {/* 4. Front Body (Main Cylinder) */}
-                        <div className="w-56 h-80 bg-gradient-to-b from-[#8B4513] via-[#A0522D] to-[#5D2906] rounded-b-3xl relative z-10 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] overflow-hidden">
-                            {/* Texture & Highlights */}
-                            <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
-                            <div className="absolute top-0 left-4 w-3 h-full bg-white/10 blur-md"></div>
-                            <div className="absolute top-0 right-8 w-6 h-full bg-black/30 blur-lg"></div>
-
-                            {/* Decorative Bands */}
-                            <div className="absolute top-16 w-full h-2 bg-[#3E1C03]/80 shadow-sm"></div>
-                            <div className="absolute bottom-16 w-full h-2 bg-[#3E1C03]/80 shadow-sm"></div>
-
-                            {/* Character */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-28 h-28 border-4 border-[#D4AF37] rounded-full flex items-center justify-center bg-[#5D2906] shadow-inner">
-                                    <span className="text-5xl font-serif text-[#D4AF37] font-bold drop-shadow-md">签</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 5. Front Rim (Outer Top Lip) */}
-                        <div className="absolute -top-8 left-0 w-56 h-16 bg-gradient-to-b from-[#6B3410] to-[#8B4513] rounded-[100%] border-b-4 border-[#3E1C03] z-20">
-                            {/* Inner shadow to suggest opening */}
-                            <div className="absolute top-1 left-1 right-1 bottom-1 bg-[#3E1C03] rounded-[100%] opacity-40 blur-sm"></div>
-                        </div>
-
-                        {/* 6. Fallen Stick (Result) - Resting ON TOP of the cylinder */}
+                        {/* Fallen Stick (Result) - Resting ON TOP of the cylinder */}
                         {stickVisible && (
                             <div
                                 onClick={revealResult}
-                                className="absolute top-20 left-1/2 transform -translate-x-1/2 w-8 h-80 bg-[#D2B48C] border-2 border-[#8B4513] rounded-md shadow-[0_10px_20px_rgba(0,0,0,0.4)] flex items-center justify-center hover:bg-[#E6CFA3] transition-colors z-50 animate-land-on-cylinder cursor-pointer origin-center rotate-12"
+                                className="absolute top-32 left-1/2 transform -translate-x-1/2 w-8 h-80 bg-[#D2B48C] border-2 border-[#8B4513] rounded-md shadow-[0_10px_20px_rgba(0,0,0,0.4)] flex items-center justify-center hover:bg-[#E6CFA3] transition-colors z-50 animate-land-on-cylinder cursor-pointer origin-center rotate-12"
                             >
                                 <span className="writing-vertical-rl text-[#8B4513] font-bold font-serif text-xl tracking-widest py-6">
                                     点击解签
