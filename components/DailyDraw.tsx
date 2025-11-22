@@ -78,44 +78,51 @@ export default function DailyDraw() {
             <h2 className="text-4xl font-serif text-gold-400 mb-12 font-display">每日一签</h2>
 
             {!showResult ? (
-                <div className="relative h-[500px] flex items-center justify-center">
+                <div className="relative h-[600px] flex items-center justify-center">
                     {/* Bamboo Cylinder Container */}
                     <div
                         onClick={handleDraw}
                         className={`relative cursor-pointer transition-transform ${shaking ? "animate-shake" : "hover:scale-105"}`}
                     >
                         {/* Cylinder Body */}
-                        <div className="w-40 h-64 bg-gradient-to-b from-[#8B4513] to-[#5D2906] rounded-lg relative overflow-hidden border-4 border-[#3E1C03] shadow-2xl z-20">
+                        <div className="w-56 h-80 bg-gradient-to-b from-[#8B4513] via-[#A0522D] to-[#5D2906] rounded-lg relative overflow-hidden border-4 border-[#3E1C03] shadow-[10px_10px_30px_rgba(0,0,0,0.5)] z-20 transform perspective-1000 rotate-x-10">
                             {/* Bamboo Texture Lines */}
-                            <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
-                            <div className="absolute top-10 w-full h-1 bg-[#3E1C03]/50"></div>
-                            <div className="absolute bottom-10 w-full h-1 bg-[#3E1C03]/50"></div>
+                            <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
+                            {/* Vertical Highlights for 3D effect */}
+                            <div className="absolute top-0 left-4 w-2 h-full bg-white/10 blur-sm"></div>
+                            <div className="absolute top-0 right-8 w-4 h-full bg-black/20 blur-md"></div>
+
+                            <div className="absolute top-12 w-full h-1.5 bg-[#3E1C03]/60 shadow-sm"></div>
+                            <div className="absolute bottom-12 w-full h-1.5 bg-[#3E1C03]/60 shadow-sm"></div>
 
                             {/* Character on Cylinder */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-20 h-20 border-4 border-[#D4AF37] rounded-full flex items-center justify-center bg-[#5D2906]">
-                                    <span className="text-4xl font-serif text-[#D4AF37] font-bold">签</span>
+                                <div className="w-28 h-28 border-4 border-[#D4AF37] rounded-full flex items-center justify-center bg-[#5D2906] shadow-inner">
+                                    <span className="text-5xl font-serif text-[#D4AF37] font-bold drop-shadow-md">签</span>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Cylinder Opening (Top) */}
-                        <div className="absolute -top-4 left-0 w-40 h-8 bg-[#6B3410] rounded-[100%] border-4 border-[#3E1C03] z-10"></div>
+                        {/* Cylinder Opening (Top) - Ellipse for 3D effect */}
+                        <div className="absolute -top-6 left-0 w-56 h-12 bg-[#5D2906] rounded-[100%] border-4 border-[#3E1C03] z-10 shadow-inner bg-gradient-to-r from-[#3E1C03] to-[#6B3410]"></div>
 
                         {/* Sticks inside (Visual only) */}
                         {!falling && !stickVisible && (
-                            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-32 h-16 z-0">
-                                <div className="absolute left-2 top-4 w-2 h-24 bg-[#D2B48C] rotate-[-15deg] rounded-t-sm border border-[#8B4513]"></div>
-                                <div className="absolute left-8 top-2 w-2 h-28 bg-[#D2B48C] rotate-[-5deg] rounded-t-sm border border-[#8B4513]"></div>
-                                <div className="absolute right-8 top-3 w-2 h-26 bg-[#D2B48C] rotate-[5deg] rounded-t-sm border border-[#8B4513]"></div>
-                                <div className="absolute right-2 top-5 w-2 h-24 bg-[#D2B48C] rotate-[15deg] rounded-t-sm border border-[#8B4513]"></div>
+                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-40 h-20 z-0">
+                                <div className="absolute left-4 top-6 w-3 h-32 bg-[#D2B48C] rotate-[-15deg] rounded-t-sm border border-[#8B4513] shadow-sm"></div>
+                                <div className="absolute left-12 top-4 w-3 h-36 bg-[#D2B48C] rotate-[-5deg] rounded-t-sm border border-[#8B4513] shadow-sm"></div>
+                                <div className="absolute right-12 top-5 w-3 h-34 bg-[#D2B48C] rotate-[5deg] rounded-t-sm border border-[#8B4513] shadow-sm"></div>
+                                <div className="absolute right-4 top-8 w-3 h-32 bg-[#D2B48C] rotate-[15deg] rounded-t-sm border border-[#8B4513] shadow-sm"></div>
+                                {/* More sticks for fullness */}
+                                <div className="absolute left-8 top-8 w-3 h-30 bg-[#D2B48C] rotate-[-10deg] rounded-t-sm border border-[#8B4513] -z-10"></div>
+                                <div className="absolute right-8 top-7 w-3 h-30 bg-[#D2B48C] rotate-[10deg] rounded-t-sm border border-[#8B4513] -z-10"></div>
                             </div>
                         )}
 
                         {/* Falling Stick Animation */}
                         {falling && (
-                            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-2 h-40 bg-[#D2B48C] border border-[#8B4513] rounded-sm z-30 animate-fall-out">
-                                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-[8px] text-[#8B4513] font-bold writing-vertical-rl">每日一签</div>
+                            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-3 h-48 bg-[#D2B48C] border border-[#8B4513] rounded-sm z-30 animate-fall-out shadow-md">
+                                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-[10px] text-[#8B4513] font-bold writing-vertical-rl">每日一签</div>
                             </div>
                         )}
                     </div>
@@ -126,12 +133,12 @@ export default function DailyDraw() {
                             onClick={revealResult}
                             className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-20 cursor-pointer animate-bounce-slow z-40"
                         >
-                            <div className="w-6 h-64 bg-[#D2B48C] border-2 border-[#8B4513] rounded-md shadow-xl flex items-center justify-center hover:bg-[#E6CFA3] transition-colors">
-                                <span className="writing-vertical-rl text-[#8B4513] font-bold font-serif text-lg tracking-widest py-4">
+                            <div className="w-8 h-72 bg-[#D2B48C] border-2 border-[#8B4513] rounded-md shadow-2xl flex items-center justify-center hover:bg-[#E6CFA3] transition-colors">
+                                <span className="writing-vertical-rl text-[#8B4513] font-bold font-serif text-xl tracking-widest py-6">
                                     点击解签
                                 </span>
                             </div>
-                            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-[#D4AF37] text-sm animate-pulse whitespace-nowrap">
+                            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-[#D4AF37] text-base animate-pulse whitespace-nowrap font-bold drop-shadow-md">
                                 点击查看签文
                             </div>
                         </div>

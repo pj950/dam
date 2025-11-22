@@ -1,9 +1,15 @@
 import DailyDraw from "@/components/DailyDraw";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function DailyPage() {
     return (
-        <main className="min-h-screen bg-space-900 py-24 px-4">
-            <DailyDraw />
-        </main>
+        <div className="min-h-screen bg-background-light dark:bg-background-dark flex flex-col">
+            <Header />
+            <main className="flex-grow py-20">
+                <DailyDraw />
+            </main>
+            <Footer />
+        </div>
     );
 }
