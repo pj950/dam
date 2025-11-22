@@ -1,13 +1,17 @@
 import { NextResponse } from "next/server";
 import { guandiLots } from "./guandi_lots";
 
-export async function GET() {
-    // Randomly select a lot
-    const randomIndex = Math.floor(Math.random() * guandiLots.length);
-    const selectedLot = guandiLots[randomIndex];
+// Force dynamic rendering - no caching
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
-    // Mock AI interpretation (in a real app, this would call an LLM API)
-    const aiInterpretation = `
+export async function GET() {
+  // Randomly select a lot with better randomization
+  const randomIndex = Math.floor(Math.random() * guandiLots.length);
+  const selectedLot = guandiLots[randomIndex];
+
+  // Mock AI interpretation (in a real app, this would call an LLM API)
+  const aiInterpretation = `
     大师解签：
     
     此签为${selectedLot.number}号签，名为"${selectedLot.title}"。
@@ -25,8 +29,17 @@ export async function GET() {
     建议您${selectedLot.detailed_explanation.advice}
   `;
 
-    return NextResponse.json({
-        ...selectedLot,
-        ai_interpretation: aiInterpretation,
-    });
+  return NextResponse.json(
+    {
+      ...selectedLot,
+      ai_interpretation: aiInterpretation,
+    },
+    {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+      },
+    }
+  );
 }
