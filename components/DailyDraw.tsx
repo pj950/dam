@@ -8,6 +8,7 @@ interface Lot {
     poem_text: string;
     poem_meaning: string;
     explanation: string;
+    prediction: Record<string, string>;
     detailed_explanation: {
         essence: string;
         advice: string;
