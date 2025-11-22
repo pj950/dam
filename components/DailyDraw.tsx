@@ -87,11 +87,11 @@ export default function DailyDraw() {
                     >
                         {/* --- High-Fidelity CSS 3D Cylinder --- */}
 
-                        {/* 1. Back Rim (Inner Top) - Darker for depth */}
-                        <div className="absolute -top-8 left-0 w-56 h-16 bg-[#3E1C03] rounded-[100%] transform translate-z-[-2px] shadow-inner"></div>
+                        {/* 1. Back Rim (Inner Top) - Pushed back for depth */}
+                        <div className="absolute -top-8 left-0 w-56 h-16 bg-[#3E1C03] rounded-[100%] transform translate-z-[-40px] shadow-inner"></div>
 
-                        {/* 2. Sticks Container (Inside) - Positioned between back and front */}
-                        <div className={`absolute -top-16 left-0 w-56 h-40 flex justify-center items-end overflow-hidden z-0 ${shaking ? "animate-sticks-shake" : ""}`}>
+                        {/* 2. Sticks Container (Inside) - Positioned in the middle */}
+                        <div className={`absolute -top-16 left-0 w-56 h-40 flex justify-center items-end overflow-visible z-0 ${shaking ? "animate-sticks-shake" : ""}`} style={{ transform: 'translateZ(-10px)' }}>
                             {/* Render multiple sticks for volume */}
                             <div className="relative w-40 h-full">
                                 {[...Array(15)].map((_, i) => (
@@ -101,7 +101,7 @@ export default function DailyDraw() {
                                         style={{
                                             height: `${120 + Math.random() * 50}px`,
                                             left: `${5 + Math.random() * 90}%`,
-                                            transform: `rotate(${Math.random() * 30 - 15}deg) translateZ(-${Math.random() * 30}px)`,
+                                            transform: `rotate(${Math.random() * 30 - 15}deg) translateZ(${Math.random() * 20 - 10}px)`, // Randomize slightly around the container's Z
                                             zIndex: i
                                         }}
                                     >
@@ -120,8 +120,8 @@ export default function DailyDraw() {
                             </div>
                         )}
 
-                        {/* 4. Front Body (Main Cylinder) - Complex Gradients for Realism */}
-                        <div className="w-56 h-80 relative z-10 rounded-b-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                        {/* 4. Front Body (Main Cylinder) - Pulled forward */}
+                        <div className="w-56 h-80 relative z-10 rounded-b-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] transform translate-z-[20px]">
                             {/* Base Gradient (Cylinder Shape) */}
                             <div className="absolute inset-0 bg-gradient-to-r from-[#5D2906] via-[#A0522D] to-[#5D2906]"></div>
 
@@ -143,8 +143,8 @@ export default function DailyDraw() {
                             </div>
                         </div>
 
-                        {/* 5. Front Rim (Outer Top Lip) - The key to 3D look */}
-                        <div className="absolute -top-8 left-0 w-56 h-16 bg-gradient-to-b from-[#8B4513] to-[#5D2906] rounded-[100%] border-b border-[#3E1C03]/50 z-20 shadow-md">
+                        {/* 5. Front Rim (Outer Top Lip) - Pulled forward with body */}
+                        <div className="absolute -top-8 left-0 w-56 h-16 bg-gradient-to-b from-[#8B4513] to-[#5D2906] rounded-[100%] border-b border-[#3E1C03]/50 z-20 shadow-md transform translate-z-[20px]">
                             {/* Inner shadow to suggest opening depth */}
                             <div className="absolute top-1 left-1 right-1 bottom-1 bg-[#2A1202] rounded-[100%] shadow-[inset_0_5px_10px_rgba(0,0,0,0.8)]"></div>
                         </div>
